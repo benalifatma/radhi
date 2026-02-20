@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aya ki toghlet tekhser tabthli nudes  💕</title>
+  <title>Aya ki toghlet tekhser tabthli nudes 💕</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap');
 
@@ -33,9 +33,6 @@
       object-position: center;
       filter: brightness(0.75);
     }
-
-    /* 👇 Remplace ce src par le lien de VOTRE photo */
-    /* Si tu as un fichier local, mets: src="votre_photo.jpg" */
 
     .hero-overlay {
       position: absolute;
@@ -219,22 +216,20 @@
     @keyframes fall {
       to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
     }
+
+    /* petite animation de chargement */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
 
   <!-- ── HERO ── -->
   <div class="hero">
-    <!--
-      👉 REMPLACE L'URL CI-DESSOUS PAR TA PHOTO :
-         • Si c'est une URL en ligne  → src="https://..."
-         • Si c'est un fichier local  → src="photo.jpg"  (mets la photo dans le même dossier)
-    -->
-    <img
-      src="Capture.JPG"
-      alt="Toghlet Nikek"
-      id="couplePhoto"
-    />
+    <!-- Remplace par le lien de TA photo -->
+    <img src="Capture.JPG" alt="Toghlet Nikek" id="couplePhoto" />
     <div class="hero-overlay">
       <h1>Toghlet Nikek 💕</h1>
       <p>Jeweb ayy ✨</p>
@@ -246,38 +241,37 @@
     <h2>MARA OKHRA TOGHLET NIKEKKKKKK 🌸</h2>
 
     <form id="sondageForm">
-
-      <!-- Q1 — choix unique -->
+      <!-- Q1 -->
       <div class="question">
-        <label class="q-label"><span class="num">1</span>chneya lebsa awel date  ?</label>
+        <label class="q-label"><span class="num">1</span>chneya lebsa awel date ?</label>
         <div class="options">
-          <label class="option"><input type="radio" name="q1" value="sorties">  Deux piéces </label>
-          <label class="option"><input type="radio" name="q1" value="soirees">  Maryoul w serwel</label>
-          <label class="option"><input type="radio" name="q1" value="voyages">  chemise w short</label>
-          <label class="option"><input type="radio" name="q1" value="quotidien">  chemise w maryoul w short</label>
+          <label class="option"><input type="radio" name="q1" value="Deux piéces" required> Deux piéces</label>
+          <label class="option"><input type="radio" name="q1" value="Maryoul w serwel"> Maryoul w serwel</label>
+          <label class="option"><input type="radio" name="q1" value="chemise w short"> chemise w short</label>
+          <label class="option"><input type="radio" name="q1" value="chemise w maryoul w short"> chemise w maryoul w short</label>
         </div>
       </div>
 
       <hr/>
 
-      <!-- Q2 — choix multiple -->
+      <!-- Q2 -->
       <div class="question">
-        <label class="q-label"><span class="num">2</span>chneya esmou sadikek lkhayeli  :</label>
+        <label class="q-label"><span class="num">2</span>chneya esmou sadikek lkhayeli :</label>
         <div class="options">
-          <label class="option"><input type="radio" name="q2" value="rires">  Fatoum</label>
-          <label class="option"><input type="radio" name="q2" value="tendresse">  chamchoum</label>
-          <label class="option"><input type="radio" name="q2" value="soutien">  Maryoul</label>
-          <label class="option"><input type="radio" name="q2" value="intelligence">  Asfour</label>
+          <label class="option"><input type="radio" name="q2" value="Fatoum" required> Fatoum</label>
+          <label class="option"><input type="radio" name="q2" value="chamchoum"> chamchoum</label>
+          <label class="option"><input type="radio" name="q2" value="Maryoul"> Maryoul</label>
+          <label class="option"><input type="radio" name="q2" value="Asfour"> Asfour</label>
         </div>
       </div>
 
       <hr/>
 
-      <!-- Q3 — curseur -->
+      <!-- Q3 -->
       <div class="question">
         <label class="q-label"><span class="num">3</span>Ala 10 kadeh thebni Thot 1 noktlek? 💖</label>
         <div class="range-wrap">
-          <input type="range" id="amour" min="1" max="10" value="10"
+          <input type="range" id="amour" name="q3" min="1" max="10" value="10"
             oninput="document.getElementById('amourVal').textContent = this.value"/>
           <span class="range-val" id="amourVal">10</span>
         </div>
@@ -285,7 +279,7 @@
 
       <hr/>
 
-      <!-- Q4 — texte libre -->
+      <!-- Q4 -->
       <div class="question">
         <label class="q-label"><span class="num">4</span>Chneya ahla mekla andi ?</label>
         <textarea name="q4" placeholder="Ex : un coucher de soleil sur la plage... "></textarea>
@@ -293,42 +287,92 @@
 
       <hr/>
 
-      <!-- Q5 — texte libre -->
+      <!-- Q5 -->
       <div class="question">
         <label class="q-label"><span class="num">5</span>Koli haja manajemtech tkoulheli 🥰</label>
         <textarea name="q5" placeholder="Je t'écoute avec tout mon cœur..."></textarea>
       </div>
 
-      <button type="submit" class="btn-submit">Envoyer mes réponses 💌</button>
+      <!-- Champ caché pour Formspree : indique le sujet de l'email -->
+      <input type="hidden" name="_subject" value="💌 Nouvelles réponses au sondage Toghlet Nikek">
+      <!-- Champ caché pour désactiver la redirection (on gère nous-mêmes) -->
+      <input type="hidden" name="_next" value="">
+
+      <button type="submit" class="btn-submit" id="submitBtn">Envoyer mes réponses 💌</button>
     </form>
 
-    <!-- Résultat -->
+    <!-- Résultat (caché au départ) -->
     <div id="result">
       <div class="heart">❤️</div>
       <h3>Merci mon amour !</h3>
       <p>Nhebeeeeek 🌸</p>
+      <p style="margin-top: 1rem; font-size: 0.9rem;">✨ Tes réponses ont bien été envoyées ✨</p>
     </div>
   </div>
 
   <!-- Pétales décoratifs -->
   <script>
-    const petals = ['🌸','🌺','💕','🌹','✨'];
-    for(let i = 0; i < 14; i++){
-      const p = document.createElement('div');
-      p.className = 'petal';
-      p.textContent = petals[Math.floor(Math.random()*petals.length)];
-      p.style.left = Math.random()*100 + 'vw';
-      p.style.animationDuration = (6 + Math.random()*8) + 's';
-      p.style.animationDelay = (Math.random()*10) + 's';
-      p.style.fontSize = (1 + Math.random()*1.2) + 'rem';
-      document.body.appendChild(p);
-    }
+    (function() {
+      // Pétales
+      const petals = ['🌸','🌺','💕','🌹','✨'];
+      for(let i = 0; i < 14; i++){
+        const p = document.createElement('div');
+        p.className = 'petal';
+        p.textContent = petals[Math.floor(Math.random()*petals.length)];
+        p.style.left = Math.random()*100 + 'vw';
+        p.style.animationDuration = (6 + Math.random()*8) + 's';
+        p.style.animationDelay = (Math.random()*10) + 's';
+        p.style.fontSize = (1 + Math.random()*1.2) + 'rem';
+        document.body.appendChild(p);
+      }
 
-    document.getElementById('sondageForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('result').style.display = 'block';
-    });
+      // ⚠️ REMPLACE CETTE URL PAR TON ENDPOINT FORMSPREE ⚠️
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdaallo'; // <-- À MODIFIER
+
+      const form = document.getElementById('sondageForm');
+      const resultDiv = document.getElementById('result');
+      const submitBtn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Désactiver le bouton pour éviter les doubles envois
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Envoi en cours...';
+
+        // Récupérer les données du formulaire (y compris les champs cachés)
+        const formData = new FormData(form);
+
+        // Ajouter manuellement la valeur du range (car elle n'est pas dans FormData si pas de name)
+        // Mais on a déjà mis name="q3" sur le range, donc c'est bon.
+        // Vérifier que les radios sont bien requis (ils le sont)
+
+        try {
+          const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            // Succès : on cache le formulaire et on affiche le message
+            form.style.display = 'none';
+            resultDiv.style.display = 'block';
+          } else {
+            // Erreur de soumission (ex: mauvais endpoint)
+            alert('Oups ! Une erreur est survenue. Essaie encore ou préviens-moi 😘');
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Envoyer mes réponses 💌';
+          }
+        } catch (error) {
+          alert('Problème de connexion. Vérifie ton réseau et réessaie.');
+          submitBtn.classList.remove('loading');
+          submitBtn.textContent = 'Envoyer mes réponses 💌';
+        }
+      });
+    })();
   </script>
 </body>
 </html>
